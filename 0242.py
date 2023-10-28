@@ -1,4 +1,4 @@
-
+from collections import Counter
 #Method 1 : counting the number of letter in the given words 
 #           comparing them
 # This method has  O(n) time  complexity and O(n) space complexity
@@ -20,7 +20,7 @@ def isAnagram( s: str, t: str) -> bool:
 #Code of method 2:
 def isAnagram( s: str, t: str) -> bool:
     
-    return counter(s) == counter(t) 
+    return Counter(s) == Counter(t) 
 
  
  

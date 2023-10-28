@@ -16,10 +16,9 @@ def groupAnagrams(strs:list[str]) -> list[list[str]]:
     return anagram_map.values() 
 
 
-#isko sikhna hai
 
 
-#isko sikhna hai
+#My solution 
 def groupAnagrams1(strs:list[str]) -> list[list[str]]:
     res = []
     groups = {}
@@ -29,11 +28,10 @@ def groupAnagrams1(strs:list[str]) -> list[list[str]]:
             groups[key] = [word]
         else:
             groups[key].append(word)
-        for key in groups:
-            res.append(groups[key])
-        print(groups)
-        print(res)
-    # return res    
+            
+    for key in groups:
+        res.append(groups[key])   
+    return res    
            
 groupAnagrams1(strs)           
            

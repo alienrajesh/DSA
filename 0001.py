@@ -22,10 +22,9 @@ def twoSum(nums:[int], target: int) -> [int]:
     return []
         
    
-    
-    
-    
-# nums = [2,7,11,15]
-# target = 9    
+
+
+
+   
 
 print(twoSum(nums = [3,4,3] , target = 6 ))
