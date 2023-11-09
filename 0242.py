@@ -8,9 +8,8 @@ def isAnagram( s: str, t: str) -> bool:
 
         countS, countT = {}, {}
         for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i],0) #.get() is used to get and element from the dictionar
+            countS[s[i]] = 1 + countS.get(s[i],0) #.get() is used to get and element from the dictionary
             countT[t[i]] = 1 + countT.get(t[i],0) #when there is no element it returns 0
-        print(countS,countT)
 
         return countS == countT
         
@@ -27,7 +26,7 @@ def isAnagram( s: str, t: str) -> bool:
  
  
 # method 3: by sorting the two strings 
-# this has a down side time complexity will be different according to the sorted algorithms used
+# this has a down side,time complexity will be different according to the sorted algorithms used
 
 def isAnagram( s: str, t: str) -> bool:
     
@@ -35,5 +34,19 @@ def isAnagram( s: str, t: str) -> bool:
 
 
 
+s , t= "anagram" ,"nagaram"
 
-
+def isAnagram4(s:str , t:str) ->bool:
+    if len(s) != len(t):
+        return False
+    
+    groupS, groupT = {} , {}
+    
+    for i in range(len(s)):
+        groupS[s[i]] = 1 + groupS.get(s[i],0)
+        groupT[t[i]] = 1 + groupT.get(t[i],0)
+    print(groupT)
+    print(groupS)
+    return groupS == groupT
+    
+print(isAnagram4(s, t))

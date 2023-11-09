@@ -7,7 +7,7 @@
 # [1,2,3,4,100,200]
 # [ 1, 3 , 4, 5, 6, 100, 200]
 
-nums =  [ 1, 3 , 4, 5, 6, 100, 101, 102, 103, 104, 105, 200]
+nums =  [ ]
 
 def longestConsecutive(nums: list[int]) -> int:
     
@@ -19,7 +19,7 @@ def longestConsecutive(nums: list[int]) -> int:
         if nums[i+1] - nums[i] == 1 :
             counter +=1
         else:
-            counter = 0
+           counter = 0
             
         if max < counter :
             max = counter
@@ -27,7 +27,20 @@ def longestConsecutive(nums: list[int]) -> int:
                   
     return max + 1
            
-       
+
+def  longestConsecutive(nums: list[int]) -> int:
+    numSet = set(nums)
+    
+    longest = 0
+    
+    for n in numSet: 
+        if (n-1) not in numSet:
+            length = 0
+            while n+length in numSet:
+               length += 1
+            longest = max(length, longest)
+    return longest
+      
         
         
     
