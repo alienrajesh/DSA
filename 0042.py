@@ -22,17 +22,21 @@ def trap(height: list[int]) -> int:
     max_i = 0
     for i in range(len(height)-1,-1,-1):
         max_r.append(max_i)
-        max_i= max(max_i,height[i])
-    print(max_l)    
-    print(reversed(max_r))    
-    
-      
+        max_i= max(max_i,height[i])   
+    max_r = max_r[::-1]    
 
-
+    area = 0 
+    for i in range(len(height)):
+        trap = min(max_r[i],max_l[i]) - height[i]
+        if trap < 0 :
+            trap = 0 
+            area += trap
+        else:
+            area += trap
+    return area
 print(trap(height))
         
-    
-    
+   
     
     
     
