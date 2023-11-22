@@ -41,34 +41,42 @@ def maxProfit1(prices: list[int]) -> int:
 
 # print(maxProfit1(prices)) 
 
+# Neetcode solution
+# time - O(n)
+# mem - O(1)
+
 
 def maxProfit2(prices:list[int]) -> int:
-    l , r = 0 , 1
+    l , r = 0 , 1 # l = buy  r = sell
     
-    maxprofit = 0
+    maxpro = 0
     
-    while r <= len(prices)-1 :
+    while r < len(prices) :
         
-        profit = prices[r] - prices[l]
-        
-        maxprofit = max(profit,maxprofit)
-        
-        if prices[l] >= prices[r]:
-            l = r 
-            r+=1
-        else:
-            profit = prices[r] - prices[l]
-        
-            maxprofit = max(profit,maxprofit)
-            r+=1
-    return maxprofit
-    
+        if prices[l] < prices [r] :
+            profit = prices[r] - prices[l] 
+            maxpro = max(maxpro,profit)
+        else :
+            l = r #sliding the window bcoz we have found the lowest price
+            
+        r+=1
+    return maxpro    
 
 print(maxProfit2(prices))
 
 
+def maxProfit3(prices:list[int]) -> int:
+    
+    profit = 0 
+    lowest = prices[0]
+    for price in prices:
+        if price < lowest:
+            lowest = price
 
+        profit = max(profit, price - lowest)
+    return profit
 
+print(maxProfit3(prices))
 
 
 
