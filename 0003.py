@@ -7,21 +7,31 @@
 
 s = "abcabcbb"
 
+# way to check if the next string added to the sequence length is already present
+
 def lengthOfLongestSubstring(s:str) -> int:
     l , r = 0 , 1
     
-    l_seq = 0
-    length = 0
-    while r < len(s):
-        
-        if s[l] == s[r]:
-            l = r
-            r +=1
-            length =0
+    max_length = 1
+    length = 1
+    strs = ""
+    while r < len(s) :
+        if s[l] == s[r] or s[r] in strs :
+            l = r 
+            length = 1
+            strs = s[l]
         else:
             length +=1
-            r +=1 
-        l_seq = max(length,l_seq)           
-    return l_seq 
-
+            strs += s[r] 
+        print(strs)
+        print(length)
+        max_length = max(length, max_length)
+        
+        r += 1
+    return max_length
 print(lengthOfLongestSubstring(s))
+
+
+
+
+
