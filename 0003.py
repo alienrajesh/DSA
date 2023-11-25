@@ -5,32 +5,30 @@
 # Output: 3
 # Explanation: The answer is "abc", with the length of 3.
 
-s = "abcabcbb"
+s = "dvdf"
 
 # way to check if the next string added to the sequence length is already present
 
-def lengthOfLongestSubstring(s:str) -> int:
-    l , r = 0 , 1
-    
-    max_length = 1
-    length = 1
-    strs = ""
-    while r < len(s) :
-        if s[l] == s[r] or s[r] in strs :
-            l = r 
-            length = 1
-            strs = s[l]
-        else:
-            length +=1
-            strs += s[r] 
-        print(strs)
-        print(length)
-        max_length = max(length, max_length)
-        
-        r += 1
-    return max_length
-print(lengthOfLongestSubstring(s))
 
+#TODO : check the new testcase - "dvdf"
+ 
+
+
+def lengthOfLongestSubstring(s:str) -> int:
+
+    charSet = set()
+    l = 0
+    
+    res = 0
+    for r in range(len(s)):
+        while s[r] in charSet:
+            charSet.remove(s[l])
+            l+=1
+        charSet.add(s[r])
+        res = max(res, (r -l) +1)
+    return res
+
+print(lengthOfLongestSubstring(s))
 
 
 
