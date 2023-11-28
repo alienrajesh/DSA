@@ -19,8 +19,7 @@ def maxArea(height: list[int]) -> int:
     return max(area)    
 
 
-# mtd 2 : pointers ko move karke left pointer fixed then right ko uske respect me move
-#         karunga
+# mtd 2 : pointers
 
 # breath = diff of l and r 
 # height = min of the height of the columns
@@ -47,4 +46,7 @@ def maxArea2(height: list[int]) -> int:
     return maxarea    
         
         
-print(maxArea2(height))   
+print(maxArea2(height))  
+       
+
+ 
