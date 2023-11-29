@@ -16,26 +16,29 @@
 # There may exists other ways to achieve this answer too.
 
 
-s = "ABAB" 
-k = 2
+s = "AABABBA" 
+k = 1
 
-
+# NEETCODE solution 
+# time - O(26*n)
+# spcae - O(26)
 def  characterReplacement(s:str , k : int) -> int:
-    l , r = 0 , 1
+    count = {} 
     
-    max_length = 0
+    l = 0 
+    res = 0
+    for r in range(len(s)):
+        count[s[r]] = 1 + count.get(s[r],0)
+        
+        while (r -l +1) - max(count.values()) > k :
+            count[s[l]] -= 1     
+            l +=1
+            
+        res = max(res,r-l+1)    
+    return res
     
-    while r < len(s) :
-        curr_length = 0
-        
-        while s[l] == s[r] :
-            curr_length +=1
-        
-        l = r 
-        r +=1
-        
-        
-        
-        
-        
-               
+
+print(characterReplacement(s , k ))
+
+
+#TODO  new solution needs to implemented with the maxf 
