@@ -35,10 +35,61 @@ def trap(height: list[int]) -> int:
             area += trap
     return area
 print(trap(height))
+ 
+
+# using pointers 
+     
+def trap2(height:list[int]) -> int:
+    
+    if len(height) == 0 :
+        return 0
+    
+    l , r = 0 , len(height)-1
+    
+
+    area = 0
+    max_l = height[0]
+    max_r = height[len(height)-1]
+    while l < r :
         
-   
+        if max_l < max_r :
+            l+=1
+            max_l = max(max_l, height[l]) 
+            area += max_l - height[l]
+            
+        else : 
+            r-=1
+            max_r = max(max_r, height[r])
+            area += max_r - height[r]
+    print(area)
+            
+                
+
+trap2(height)       
+        
+
+
+def trap3(height:list[int]) -> int:
+    if len(height) == 0 :
+        return 0
     
+    l , r = 0 , len(height) -1
+    maxleft , maxright = height[l] , height[r]
     
+    water  = 0
+    while l < r :
+        
+        if maxleft < maxright:
+            l +=1
+            maxleft = max(maxleft,height[l])
+            water += maxleft - height[l]      
+        else:
+            r -= 1
+            maxright = max(maxright,height[r])
+            water += maxright - height[r]
+    return water     
+    
+print(trap3(height))
     
     
     
