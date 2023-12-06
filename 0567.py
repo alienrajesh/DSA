@@ -10,8 +10,6 @@
 # Input: s1 = "ab", s2 = "eidboaoo"
 # Output: false
 
-# s1 = "ab"
-# s2 = "eidbaooo"
 
 s1 = "adc"
 s2 = "dcda"
@@ -42,8 +40,12 @@ def checkInclusion( s1: str, s2: str) -> bool:
 
 
 
-# M 3 : a window the size of s1 and track if all elements are in that window 
+# NEETCODE solution 
+# time -  O(N)
+# space - O(1)
 
+# s1 = "ab"
+# s2 = "eidbaooo"
 
 def checkInclusion2( s1: str, s2: str) -> bool:
     if len(s1) > len(s2) : 
@@ -54,10 +56,16 @@ def checkInclusion2( s1: str, s2: str) -> bool:
     for i in range(len(s1)):
         s1count[ord(s1[i])- ord("a")] += 1
         s2count[ord(s2[i])- ord("a")] += 1
-    
+     
     matches = 0
+    
     for i in range(26):
-        matches += 1 if s1count[i] == s2count[i] else 0
+        
+        if s1count[i] == s2count[i]:
+            matches += 1
+        else:
+            pass
+        
     l = 0
     for r in range(len(s1),len(s2)):
         if matches == 26:
@@ -84,4 +92,4 @@ def checkInclusion2( s1: str, s2: str) -> bool:
         
     return matches == 26
 
-print(checkInclusion2(s1 , s2) )            
+print(checkInclusion2(s1 , s2))            
