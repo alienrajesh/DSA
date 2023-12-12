@@ -44,7 +44,7 @@ def minWindow(s: str, t: str) -> str:
         c = s[r] 
         window[c] = 1 + window.get(c,0)
         
-        if c in countT and window [c] == countT[c]:
+        if c in countT and window[c] == countT[c]:
             have +=1
         
         while have == need:
@@ -57,13 +57,13 @@ def minWindow(s: str, t: str) -> str:
             if s[l] in countT and window[s[l]] < countT[s[l]]:
                 have -=1
             l+=1
-        l,r = res
+    l,r = res
         
-        return s[l:r+1] if resLen != float("infinity") else ""
+    return s[l:r+1] if resLen != float("infinity") else ""
                 
         
           
-minWindow(s, t)
+print(minWindow(s, t))
 
 
 
