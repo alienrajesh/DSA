@@ -33,7 +33,7 @@ class MinStack:
             self.stack.append(val)
             self.minstack.append(val)
         else:
-            if self.minstack[-1] > val:
+            if self.minstack[-1] >= val:
                 # self.minstack.pop()
                 self.minstack.append(val)
                 self.stack.append(val)
