@@ -60,7 +60,8 @@ def isValid(s:str) -> bool:
  
 def isValid2(s:str) -> bool:
     
-    stack = [] 
+    stack = []
+     
     bracket = {
         ")" : "(" ,
         "]" : "[" ,
@@ -68,7 +69,7 @@ def isValid2(s:str) -> bool:
     }      
             
     for c in s:
-        print(c)
+        # print(c)
         if c in bracket:
             if stack and stack[-1] == bracket[c]:
                 stack.pop()
@@ -76,7 +77,7 @@ def isValid2(s:str) -> bool:
               return False
         else:
             stack.append(c) 
-        print(stack)
+        # print(stack)
     
     return True if not stack else False  
                 
