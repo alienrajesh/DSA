@@ -50,23 +50,39 @@ def groupedAnangram2(strs:list[str]) -> list[list[str]]:
         count= [0]*26
         
         for i in s:
-            count[ord(i) - ord("c")] +=1
+            count[ord(i) - ord("a")] +=1
         res[tuple(count)].append(s)    
     return res.values()
                     
 print(groupedAnangram2(strs))    
             
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+# new solution 
+#more efficient
+# less space
+
+def groupAnagrams4(strs:list[str]) -> list[list[str]]:
+    
+    myMap = {}
+    for word in strs:
+        temp = ''.join(sorted(word))
+        if temp in myMap:
+            myMap[temp].append(word)
+        else:
+            myMap[temp] = [word]
+    return myMap.values()
+        
+print(groupAnagrams4(strs))
+
+
+
+def groupAnagrams5(strs:list[str]) -> list[list[str]] :
+    
+    res = defaultdict(list)
+    
+    
+    for w in strs:
+        count = [0]* 26 
+        for i in w:
+            count[ord(i)-ord("a")] +=1
+        res[tuple(count)].append(w)
+    return res.values   
