@@ -15,7 +15,7 @@
 
 matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
 
-target = 60
+target = 4
 
 def searchMatrix(matrix: list[list[int]], target: int) -> bool:
     
@@ -39,7 +39,65 @@ def searchMatrix(matrix: list[list[int]], target: int) -> bool:
         else:
             return number
 
-    return "number not found"
-
+    return "Number Not Found"
     
-print(searchMatrix(matrix,target))
+# NEETCODE solution 
+# time  - O(log(m*n))
+# space -
+
+def searchMatrix2( nums:list[list[int]] , target :int):
+    
+    rows , cols = len(matrix) , len(matrix[0])
+    
+    top , bottom = 0 , rows -1 
+    
+    while top <= bottom :
+        row = (top+bottom) // 2
+        
+        if target > matrix[row][-1] :
+            top = row + 1 
+        elif target < matrix[row][0]:
+            bottom = row - 1 
+        else:
+            break 
+        
+    if not (top <= bottom):
+        return False
+
+    l , r = 0 , cols -1
+    
+    while l <= r :
+        mid = (l+r) // 2 
+        
+        if target > matrix[row][mid] :
+            l = mid + 1 
+        elif target < matrix[row][mid]:
+            r = mid -1
+        else:
+            return True
+
+    return False
+            
+           
+    
+print(searchMatrix2(matrix,target))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
