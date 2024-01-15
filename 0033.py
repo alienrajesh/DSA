@@ -17,14 +17,24 @@
 # Input: nums = [1], target = 0
 # Output: -1
 
+# TestCase - nums = [5,1,2,3,4] , target = 1 , output = 1
+
+
 # Brute force 
-# Time - 
-# Space - 
+# Time - O(N)
+# Space - O(1)
 
-nums = [4,5,6,7,8,0,1,2,]
-target = 8
+nums =[5,1,2,3,4]
+target = 1
 
-def search(nums: list[int], target: int) -> int:
+def search(nums:list[int],target) -> int:
+    
+    for r in range(len(nums)):
+        if nums[r] == target:
+            return r 
+    return -1
+
+def search2(nums: list[int], target: int) -> int:
     
     l , r = 0 , len(nums)-1
     
@@ -33,18 +43,20 @@ def search(nums: list[int], target: int) -> int:
         if nums[m] == target :
             return m 
         
-
-        if nums[l] == target:
-            return l 
-        elif nums[r] == target:
-            return r 
-        elif nums[m] > target and nums[l] > target:
-            l = m+1
-        elif nums[m] < target:
-            l = m+1
-        else :
-            r = m -1 
+        # left sorted portion 
+        if nums[l] <= nums[m] :
+            if target > nums[m] or target < nums[l]:
+                l = m +1
+            else:
+                r = m -1
+        # right sorted portion
+        else:
+            if target < nums[m] or target > nums[r]:
+                r = m - 1 
+            else: 
+                l = m + 1
+        
     return -1
 
 
-print(search(nums,target))
+print(search2(nums,target))
