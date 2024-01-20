@@ -20,20 +20,20 @@
 
 from math import ceil
 
-nums1 = [1,3]
-nums2 = [2,4]
+nums1 = [1,2]
+nums2 = [3,4]
+
 def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
     nums = sorted(nums1 + nums2)
     l , r = 0 , len(nums)-1
+        
+    # even 
     if len(nums) % 2 == 0 :
         mid = (l+r)//2
         return (nums[mid] + nums[(mid +1)]) /2 
-        # even 
+    # odd 
     else: 
-        # odd 
         mid = ceil((l+r)/2)
         return float(nums[mid])
-
-    # print(nums)    
 
 print(findMedianSortedArrays(nums1,nums2))
