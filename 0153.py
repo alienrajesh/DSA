@@ -37,19 +37,21 @@ def findMin(nums: list[int]) -> int:
             return nums[i + 1]
 
 
+
+# NEETCODE Solution
+# Time - O(logn)
+# Space - O(1)
+
 def findMin2(nums: list[int]):
-    print(nums)
     res = nums[0]
     l, r = 0, len(nums) - 1
 
     while l <= r:
-        print(f"l-{l} , r - {r}")
         if nums[l] < nums[r]:
             res = min(res, nums[l])
             break
 
         m = (l + r) // 2
-        print(f"res - {res}, nums m- {nums[m]} , {m}")
         res = min(res, nums[m])
 
         if nums[m] >= nums[l]:
@@ -58,6 +60,5 @@ def findMin2(nums: list[int]):
             r = m - 1
 
     return res
-
 
 print(findMin2(nums))
