@@ -19,6 +19,9 @@
 
 heights = [2,1,5,6,2,3]
 
+# Time  -  O(N)
+# Space -  O(N)
+
 def largestRectangleArea(heights: list[int]) -> int:
     
     maxArea = 0
@@ -32,6 +35,8 @@ def largestRectangleArea(heights: list[int]) -> int:
             maxArea = max(maxArea, height*(i-index))
             start = index
         stack.append((start,h))
+    
+    print(stack)
         
     for i , h in stack :
         maxArea = max(maxArea , h * (len(heights)-i))
