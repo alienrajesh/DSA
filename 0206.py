@@ -22,36 +22,36 @@
 # iterating every object in the given linked list and making another linkedlist
 # inserting at the begining of the newLinkedList 
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-class Solution:
-    def reverseList(self, head: [ListNode]) -> [ListNode]:
+# class Solution:
+#     def reverseList(self, head: [ListNode]) -> [ListNode]:
 
-        if head == None or head.next == None :
-            return head
+#         if head == None or head.next == None :
+#             return head
         
 
-        itr = head
-        root = LinkedList() 
-        while itr :
-            root.insert_at_begining(itr.val)
-            itr = itr.next  
+#         itr = head
+#         root = LinkedList() 
+#         while itr :
+#             root.insert_at_begining(itr.val)
+#             itr = itr.next  
 
-        return root.start
+#         return root.start
 
-class LinkedList:
+# class LinkedList:
 
-    def __init__(self) -> None:
-        self.start = None
+#     def __init__(self) -> None:
+#         self.start = None
 
-    def insert_at_begining(self,data) -> None:
+#     def insert_at_begining(self,data) -> None:
 
-        node = ListNode(data,self.start)
-        self.start = node 
+#         node = ListNode(data,self.start)
+#         self.start = node 
 
 
 # Method 2 : 
@@ -61,6 +61,15 @@ class LinkedList:
 #   the new LL is reversed . this is more efficient
 
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
+class Solution:
+    
+    def reverseList(self, head: [ListNode]) -> [ListNode]:
+        pass
 
 
 
