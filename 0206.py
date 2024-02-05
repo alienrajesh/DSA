@@ -59,8 +59,9 @@
 #   given LL = 25 --> 20 --> 12 --> 15 --> 10 --> 5 --> 0
 #   new LL   = 25 <-- 20 <-- 12 <-- 15 <-- 10 <-- 5 <-- 0
 #   the new LL is reversed . this is more efficient
+# two pointer prev - null   curr ptr  - first node 
 
-
+# NEETCODE  solution
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -69,10 +70,31 @@ class ListNode:
 class Solution:
     
     def reverseList(self, head: [ListNode]) -> [ListNode]:
-        pass
+        # prev , curr = None , head
+        
+        # iteratively  # T - O(n) S - O(1)
+        # while curr:
+        #     nxt = curr.next
+        #     curr.next = prev 
+        #     prev = curr 
+        #     curr = nxt
+        
+        # return prev
 
+        # Recursive    T - O(n)  S - O(n)
+        
+        if not head:
+            return None
+        
+        newhead = head 
+        
+        if head.next: 
+            newhead = self.reverseList(head.next) 
+            head.next.next = head 
 
-
+        head.next = None
+        
+        return newhead
 
 
 
