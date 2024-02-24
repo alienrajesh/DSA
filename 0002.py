@@ -57,11 +57,11 @@ class Solution:
         number2 = number2[::-1]
 
         result = int(number2) + int(number1)
-        
+
         for r in str(result):
             self.insert(int(r))
             
-        return ListNode 
+        return node 
 # class LinkedList:
 
 l1 = ListNode(2,ListNode(4,ListNode(3)))
