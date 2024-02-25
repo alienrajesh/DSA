@@ -41,29 +41,25 @@ class Solution:
         self.head = node
 
    def addTwoNumbers(self, l1: [ListNode], l2: [ListNode]) -> [ListNode]:
+        dummy = ListNode()
+        curr = dummy
         
-        number1 = ""
-        number2 = ""
+        carry = 0
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
 
-        while l1 :
-            number1 += str(l1.val)
-            l1 = l1.next 
+            val = v1 + v2 + carry 
+            carry = val // 10 
+            val = val % 10 
+            curr.next = ListNode(val)
             
-        while l2 :
-            number2 += str(l2.val)
-            l2 = l2.next
+            curr = curr.next 
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
         
-        number1 = number1[::-1]
-        number2 = number2[::-1]
-
-        result = int(number2) + int(number1)
-
-        for r in str(result):
-            self.insert(int(r))
-            
-        return node 
-# class LinkedList:
-
+        return dummy.next
+    
 l1 = ListNode(2,ListNode(4,ListNode(3)))
 l2 = ListNode(5,ListNode(6,ListNode(4)))
 my_solution = Solution()
