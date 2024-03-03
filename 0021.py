@@ -1,5 +1,24 @@
 # leetcode - 0021.py "Merge Two Sorted Linked List"
 
+# Problem Statement :
+# You are given the heads of two sorted linked lists list1 and list2.
+#
+# Merge the two lists into one sorted list. The list should be made by splicing
+# together the nodes of the first two lists.
+#
+# Return the head of the merged linked list.
+
+# Example 1 : list --> LinkedList  
+# Input: list1 = [1,2,4], list2 = [1,3,4]
+# Output: [1,1,2,3,4,4]
+# Example 2:
+#
+# Input: list1 = [], list2 = []
+# Output: []
+# Example 3:
+#
+# Input: list1 = [], list2 = [0]
+# Output: [0]
 
 # Definition for singly-linked list.
 class ListNode:
@@ -24,7 +43,7 @@ class Solution:
         
         if list1:
             tail.next = list1
-        elif list1:
+        elif list2:
             tail.next = list2
         
         return dummy.next
