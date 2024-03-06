@@ -69,31 +69,41 @@ class ListNode:
         self.next = next
 
 
-class Solution:
+# class Solution:
 
-    def reverseList(self, head: [ListNode]) -> [ListNode]:
-        # prev , curr = None , head
+def reverseList(head: [ListNode]) -> [ListNode]:
+    prev , curr = None , head
 
-        # iteratively  # T - O(n) S - O(1)
-        # while curr:
-        #     nxt = curr.next
-        #     curr.next = prev
-        #     prev = curr
-        #     curr = nxt
+    # iteratively  # T - O(n) S - O(1)
+    while curr:
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
 
-        # return prev
+    return prev
 
         # Recursive    T - O(n)  S - O(n)
 
-        if not head:
-            return None
+        # if not head:
+        #     return None
 
-        newhead = head
+        # newhead = head
 
-        if head.next:
-            newhead = self.reverseList(head.next)
-            head.next.next = head
+        # if head.next:
+        #     newhead = self.reverseList(head.next)
+        #     head.next.next = head
 
-        head.next = None
+        # head.next = None
 
-        return newhead
+        # return newhead
+
+l1 =  ListNode(1,ListNode(2,ListNode(4,ListNode(5,ListNode(7,ListNode(9,ListNode(11)))))))
+reversedlist = reverseList(l1)
+
+while reversedlist:
+    suffix = " --> "
+    if not reversedlist.next:
+        suffix = ""
+    print(reversedlist.val,end=suffix)
+    reversedlist = reversedlist.next
