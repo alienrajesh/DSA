@@ -22,7 +22,8 @@
 # Input: head = [1,2,3,4,5], k = 3
 #        head = 1 --> 2 --> 3 --> 4 --> 5
 # Output: [3,2,1,4,5]
-#     result =  3 --> 2 --> 1 --> 4 --> 5
+#     result = 3 --> 2 --> 1 --> 4 --> 5
+
 
 
 # Definition for singly-linked list.
@@ -33,4 +34,33 @@ class ListNode:
 
 class Solution:
     def reverseKGroup(self, head: [ListNode], k: int) -> [ListNode]:
-        pass 
+        dummy = ListNode(0,head)
+        groupPrev = dummy
+
+        while True:
+            kth = self.getKth(groupPrev,k) 
+            if not kth:
+                break
+            groupNext = kth.next 
+            
+            # reversing the list 
+            prev , curr = kth.next , groupPrev.next
+
+            while curr != groupNext:
+                tmp = curr.next
+                curr.next = prev 
+                prev = curr 
+                curr = tmp
+
+            tmp = groupPrev.next
+            groupPrev.next = kth 
+            groupPrev = tmp 
+
+            return dummy.next
+    
+    def getKth(self,curr,k):
+        
+        while curr and k > 0:
+            curr = curr.next 
+            k -=1 
+        return curr
