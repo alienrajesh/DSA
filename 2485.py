@@ -7,7 +7,7 @@
 # Return the pivot integer x. If no such integer exists, return -1. It is
 # guaranteed that there will be at most one pivot index for the given input.
 #
-#  
+#
 #
 # Example 1:
 # Input: n = 8
@@ -23,15 +23,16 @@
 # Input: n = 4
 # Output: -1
 # Explanation: It can be proved that no such integer exist.
-#  
+#
 #
 # Constraints:
 # 1 <= n <= 1000
 import math
 
-def pivotInteger(self, n: int) -> int:
 
-    sum = (n*(n+1)//2)
+def pivotInteger(n: int) -> int:
+
+    sum = n * (n + 1) // 2
     pivot = int(math.sqrt(sum))
 
     return pivot if pivot * pivot == sum else -1
