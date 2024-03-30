@@ -29,7 +29,7 @@
 from collections import defaultdict
 
 
-def subarraysWithKDistinct(nums: List[int], k: int) -> int:
+def subarraysWithKDistinct(nums: list[int], k: int) -> int:
     count = defaultdict(int)
     res = 0
     l_far = 0
