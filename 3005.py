@@ -24,18 +24,17 @@
 # So the number of elements in the array with maximum frequency is 5.
 
 
-def maxFrequencyElements(self, nums: List[int]) -> int:
-    
+def maxFrequencyElements(nums: list[int]) -> int:
     if len(nums) == 1:
-        return 1 
-    
+        return 1
+
     nums_freq = {}
-    max_freq = 0 
 
     for num in nums:
-        nums_freq[num] = 1 + nums_freq.get(num,0)
-        max_freq = max(max_freq,nums_freq[num])
+        nums_freq[num] = 1 + nums_freq.get(num, 0)
+
+    max_freq = max(nums_freq.values())
 
     total = sum(val for val in nums_freq.values() if val == max_freq)
 
-    return total  
+    return total
