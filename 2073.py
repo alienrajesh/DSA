@@ -47,7 +47,7 @@
 # 1 <= tickets[i] <= 100
 # 0 <= k < n
 
-def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+def timeRequiredToBuy(self, tickets: list[int], k: int) -> int:
 
     # My solution
     # time = 0 
