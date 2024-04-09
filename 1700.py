@@ -51,6 +51,7 @@
 # students.length == sandwiches.length
 # sandwiches[i] is 0 or 1.
 # students[i] is 0 or 1.
+from collections import Counter
 
 def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
     res = len(students)
