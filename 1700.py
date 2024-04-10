@@ -1,6 +1,6 @@
 # 1700. Number of Students Unable to Eat Lunch
-# 
-# 
+#
+#
 # The school cafeteria offers circular and square sandwiches at lunch break,
 # referred to by numbers 0 and 1 respectively. All students stand in a queue. Each
 # student either prefers square or circular sandwiches.
@@ -16,13 +16,13 @@
 # and students[j] is the preference of the j​​​​​​th student in the initial queue
 # (j = 0 is the front of the queue). Return the number of students that are unable
 # to eat.
-# 
-#  
-# 
+#
+#
+#
 # Example 1:
-# 
+#
 # Input: students = [1,1,0,0], sandwiches = [0,1,0,1]
-# Output: 0 
+# Output: 0
 # Explanation:
 # - Front student leaves the top sandwich and returns to the end of the line
 # making students = [1,0,0,1].
@@ -44,8 +44,8 @@
 # Example 2:
 # Input: students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
 # Output: 3
-#  
-# 
+#
+#
 # Constraints:
 # 1 <= students.length, sandwiches.length <= 100
 # students.length == sandwiches.length
@@ -53,11 +53,12 @@
 # students[i] is 0 or 1.
 from collections import Counter
 
-def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
+
+def countStudents(students: list[int], sandwiches: list[int]) -> int:
     res = len(students)
-   
+
     count = Counter(students)
-    
+
     for s in sandwiches:
         if count[s] > 0:
             res -= 1
@@ -65,4 +66,4 @@ def countStudents(self, students: list[int], sandwiches: list[int]) -> int:
         else:
             return res
 
-    return res  
+    return res
