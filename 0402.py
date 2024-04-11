@@ -42,7 +42,7 @@ def removeKdigits(num: str, k: int) -> str:
         while k > 0 and stack and stack[-1] > c:
             k -= 1
             stack.pop()
-            stack.append(c)
+        stack.append(c)
 
     stack = stack[: len(stack) - k]
     res = "".join(stack)
