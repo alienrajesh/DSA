@@ -86,7 +86,7 @@ class Solution:
             adj[n2].append(n1)
 
         edge_cnt = {}
-        leaves = deque()
+        leaves = deque()  # type: ignore
 
         for src, neighbors in adj.items():
             if len(neighbors) == 1:
