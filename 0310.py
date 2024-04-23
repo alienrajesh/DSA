@@ -16,49 +16,50 @@
 #
 #
 # Example 1:
-#    0
-#    |
-#    1
-#  /   \
-# 2     3
+#       0
+#       |
+#       1
+#     /  \
+#    2    3
 #
-#    1
-#  / |  \
-# 0  3  2
+#       1
+#    /  |  \
+#   0   3   2
 #
 #
-#    2
-#    |
-#    1
-#  /   \
-# 0     3
+#       2
+#       |
+#       1
+#     /   \
+#    0     3
 #
-#    3
-#    |
-#    1
-#  /   \
-# 0     2
+#      3
+#      |
+#      1
+#    /   \
+#   0     2
 # Input: n = 4, edges = [[1,0],[1,2],[1,3]]
 # Output: [1]
 # Explanation: As shown, the height of the tree is 1 when the root is the node with label 1 which is the only MHT.
 #
 #
 # Example 2:
-#      3
-#    / | \
-#   0  1  2
-#         |
-#         4
-#         |
-#         5
-#
-#      4
-#    /   \
-#   5    3
+#        3
 #      / | \
 #     0  1  2
+#           |
+#           4
+#          |
+#          5
 #
-# Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
+#
+#          4
+#        /   \
+#       5    3
+#          / | \
+#         0  1  2
+#
+#  Input: n = 6, edges = [[3,0],[3,1],[3,2],[3,4],[5,4]]
 # Output: [3,4]
 #
 #
@@ -96,10 +97,13 @@ class Solution:
         while leaves:
             if n <= 2:
                 return list(leaves)
+
             length_of_leaves = len(leaves)
+
             for i in range(length_of_leaves):
                 node = leaves.popleft()
                 n -= 1
+
                 for nei in adj[node]:
                     edge_cnt[nei] -= 1
 
